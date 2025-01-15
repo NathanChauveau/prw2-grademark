@@ -12,7 +12,7 @@ class SchoolClassController extends Controller
      */
     public function index()
     {
-        //
+        return view('school_classes.index', ['school_classes' => SchoolClass::all()]);
     }
 
     /**
@@ -36,6 +36,6 @@ class SchoolClassController extends Controller
      */
     public function show(SchoolClass $schoolClass)
     {
-        //
+        return view('school_classes.show', ['school_class' => $schoolClass]);
     }
 }
