@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\StudyPlan;
 use App\Models\Course;
-use App\Models\Manager;
 use Illuminate\Http\Request;
 
 class StudyPlanController extends Controller
@@ -56,15 +55,5 @@ class StudyPlanController extends Controller
             $studyPlan->coursesSync($request->courses);
         }
         return redirect(route('study_plans.show', $studyPlan));
-    }
-
-    public static function middleware()
-    {
-        return [
-            function (Request $request, \Closure $next) {
-                Manager::findOrFail(Auth::id());
-                return $next($request);
-            },
-        ];
     }
 }

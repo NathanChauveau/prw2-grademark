@@ -23,14 +23,4 @@ class StudentController extends Controller
     {
         return view('students.show', compact('student'));
     }
-
-    public static function middleware()
-    {
-        return [
-            function (Request $request, \Closure $next) {
-                Manager::findOrFail(Auth::id());
-                return $next($request);
-            },
-        ];
-    }
 }
