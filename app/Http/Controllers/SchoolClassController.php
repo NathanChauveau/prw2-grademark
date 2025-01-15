@@ -38,28 +38,4 @@ class SchoolClassController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SchoolClass $schoolClass)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SchoolClass $schoolClass)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SchoolClass $schoolClass)
-    {
-        //
-    }
 }
