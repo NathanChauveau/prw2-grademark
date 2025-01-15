@@ -6,13 +6,14 @@ use App\Http\Controllers\GradeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudyPlanController;
 use App\Http\Middleware\CheckTypeOfUser;
+use App\Models\Student;
 
 Route::get('/', function () {
     return redirect(route('dashboard'));
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard', ['students' => Student::all()]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

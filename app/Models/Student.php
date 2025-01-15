@@ -16,4 +16,15 @@ class Student extends User
         return $this->hasManyThrough(Course::class, Grade::class, 'user_id', 'id', 'id', 'course_id')->distinct();
     }
 
+    public function filter()
+    {
+        //WIP
+        $collection = collect([]);
+        foreach ($this as $student) {
+            $collection->push($student->grades->mean());
+        }
+
+
+        return $collection->sortByDesc('1')->take(10);
+    }
 }
