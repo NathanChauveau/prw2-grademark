@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SchoolClass extends Model
 {
     //
+    protected $fillable = ['name', 'study_plan_id'];
 
 
     public function studyPlan()

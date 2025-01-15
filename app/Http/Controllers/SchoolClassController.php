@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SchoolClass;
+use App\Models\StudyPlan;
 use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
@@ -20,7 +21,7 @@ class SchoolClassController extends Controller
      */
     public function create()
     {
-        //
+        return view('school_classes.create', ['school_class' => new SchoolClass(), 'study_plans' => StudyPlan::all()]);
     }
 
     /**
@@ -28,7 +29,11 @@ class SchoolClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $school_class = new SchoolClass($request->all());
+
+        $school_class->saveOrFail();
+
+        return redirect(route("school_classes.index"));
     }
 
     /**
