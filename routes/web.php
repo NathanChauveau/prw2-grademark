@@ -7,6 +7,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudyPlanController;
 use App\Http\Middleware\CheckTypeOfUser;
 use App\Models\Student;
+use App\Http\Controllers\SchoolClassController;
 
 Route::get('/', function () {
     return redirect(route('dashboard'));
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['auth', CheckTypeOfUser::class . ':App\Models\Manager'])->group(function () {
         Route::resource('students', StudentController::class)->only('index', 'show');
         Route::resource('study_plans', StudyPlanController::class)->except('edit', 'destroy');
+        Route::resource('school_classes', SchoolClassController::class)->except('edit', 'update', 'destroy');
     });
 });
 
