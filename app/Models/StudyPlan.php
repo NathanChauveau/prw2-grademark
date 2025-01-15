@@ -20,6 +20,11 @@ class StudyPlan extends Model
         return $this->hasMany(Course::class);
     }
 
+    public function schoolClass()
+    {
+        return $this->belongsTo(SchoolClass::class);
+    }
+
     public function coursesSync($ids)
     {
         $ids = collect($ids);

@@ -16,4 +16,8 @@ class Student extends User
         return $this->hasManyThrough(Course::class, Grade::class, 'user_id', 'id', 'id', 'course_id')->distinct();
     }
 
+    public function schoolClass()
+    {
+        return $this->belongsTo(related: SchoolClass::class);
+    }
 }
