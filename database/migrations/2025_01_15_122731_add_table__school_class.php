@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('study_plan_id');
+            $table->timestamps();
         });
 
         Schema::table('users', function (Blueprint $table) {
