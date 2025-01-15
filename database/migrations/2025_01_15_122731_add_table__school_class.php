@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('school_class', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('study_plan_id')->nullable();
+            $table->foreignId('study_plan_id');
         });
 
         Schema::table('users', function (Blueprint $table) {
@@ -27,6 +27,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+
+        Schema::table('school_class', function (Blueprint $table) {
+            $table->dropForeign('study_plan_id');
+        });
+
         Schema::dropIfExists('school_class');
 
         Schema::table('users', function (Blueprint $table) {
